@@ -37,7 +37,7 @@ jobs:
             --add-data "base_lgb.pkl;." ^
             --hidden-import=customtkinter ^
             --hidden-import=lightgbm ^
-            app_tk1.py
+            gui.py
         shell: cmd
 
       - name: Upload EXE to GitHub Release
