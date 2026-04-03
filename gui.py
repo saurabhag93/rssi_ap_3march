@@ -7,7 +7,7 @@ Original file is located at
     https://colab.research.google.com/drive/1lmL2QUAWg0XD5_r4WSFz_WgSQQMvmeoW
 """
 
-!pip install customtkinter
+#!pip install customtkinter
 import sys
 import os
 import joblib
