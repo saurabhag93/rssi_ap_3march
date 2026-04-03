@@ -29,6 +29,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install pyserial
+          pip install pyinstaller
 
       # IMPORTANT: base_lgb.pkl is bundled inside the exe here
       - name: Build Windows EXE
@@ -39,12 +40,15 @@ jobs:
             --hidden-import=lightgbm ^
             gui.py
         shell: cmd
+        #- name: Build Windows EXE
+  #run: |
+    #pyinstaller --onefile --noconsole --add-data "base_lgb.pkl;." --hidden-import=customtkinter --hidden-import=lightgbm gui.py
 
       - name: Upload EXE to GitHub Release
         uses: softprops/action-gh-release@v1
         with:
           tag_name: windows-build
           name: Windows Build
-          files: dist/app_tk1.exe
+          files: dist/gui.exe
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
